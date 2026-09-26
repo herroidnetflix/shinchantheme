@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b10">
+  <meta name="description" content="SHINCHAN — an immersive childhood memory gallery.">
+  <title>SHINCHAN — Welcome back to childhood.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+</head>
+<body>
+  <div id="loader" class="loader" aria-label="Loading SHINCHAN">
+    <div class="loader-crayon" aria-hidden="true"></div>
+    <div class="loader-logo">SHINCHAN</div>
+    <p>Welcome back to childhood.</p>
+    <button id="enterBtn" class="glass-btn primary">ENTER MY WORLD <span>↗</span></button>
+    <small>Sound begins after you enter.</small>
+  </div>
+
+  <main id="app" class="app is-hidden">
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+    <div class="grain"></div>
+    <div id="particles" class="particles" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">SHINCHAN <span>MEMORIES</span></div>
+      <div class="top-actions">
+        <button class="icon-btn" id="randomBtn" aria-label="Random memory" title="Random memory">✦</button>
+        <button class="icon-btn" id="favoriteBtn" aria-label="Favorite memory" title="Favorite memory">♡</button>
+        <button class="icon-btn" id="fullscreenBtn" aria-label="Fullscreen" title="Fullscreen">⛶</button>
+      </div>
+    </header>
+
+    <section id="gallery" class="gallery" aria-label="Shinchan memory gallery">
+      <div class="memory-bg"></div>
+      <div class="memory-orbit orbit-one"></div>
+      <div class="memory-orbit orbit-two"></div>
+
+      <div class="memory-stage">
+        <div class="glass-backdrop"></div>
+        <div class="image-shell">
+          <div class="image-reflection"></div>
+          <img id="memoryImage" src="assets/images/01-shinchan.jpg" alt="Shinchan memory" draggable="false">
+          <div class="image-vignette"></div>
+        </div>
+        <div class="glass-front"></div>
+      </div>
+
+      <div class="memory-copy">
+        <div class="eyebrow"><span id="memoryCharacter">SHINCHAN</span><i></i><span id="memoryIndex">01 / 15</span></div>
+        <h1 id="memoryTitle">A little chaos, a lot of childhood.</h1>
+        <p id="memoryCaption">Nenu innocent... evidence ekkada undi? 😎</p>
+      </div>
+
+      <div class="scroll-hint"><span>SCROLL TO REMEMBER</span><i></i></div>
+
+      <aside class="progress-wrap" aria-label="Gallery progress">
+        <div id="progressRail" class="progress-rail"></div>
+        <div class="progress-count"><strong id="progressNumber">01</strong><span>/15</span></div>
+      </aside>
+    </section>
+
+    <section id="ending" class="ending" aria-label="Gallery ending">
+      <div class="ending-card glass-panel">
+        <span class="eyebrow">THE LAST MEMORY</span>
+        <h2>SHINCHAN</h2>
+        <p>Childhood never really leaves us.</p>
+        <em>Malli kaluddam... 😌</em>
+        <div class="ending-actions">
+          <button id="replayBtn" class="glass-btn primary">REPLAY GALLERY</button>
+          <button id="exploreBtn" class="glass-btn">EXPLORE AGAIN</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="control-dock glass-panel" id="controlDock">
+      <button id="musicBtn" class="dock-btn" aria-label="Play or pause music">♫</button>
+      <div class="volume-control"><span>VOL</span><input id="volume" type="range" min="0" max="1" step=".01" value=".55" aria-label="Volume"></div>
+      <button id="muteBtn" class="dock-btn" aria-label="Mute">⌁</button>
+      <button id="shareBtn" class="dock-btn" aria-label="Share">↗</button>
+      <button id="downloadBtn" class="dock-btn" aria-label="Download wallpaper">↓</button>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="shiroEgg" class="shiro-egg" aria-hidden="true">🐶</div>
+    <button id="crayonBtn" class="crayon-btn" aria-label="Crayon mode">✎</button>
+
+    <audio id="bgAudio" preload="metadata" loop src="assets/audio/shinchan-theme.mp3"></audio>
+    <audio id="sfx" preload="none"></audio>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
